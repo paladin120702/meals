@@ -1,6 +1,6 @@
 # meals
 
-A new Flutter project.
+Um aplicativo de refeições feito em flutter.
 
 ## Getting Started
 
