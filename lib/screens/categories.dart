@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import '../components/category_item.dart';
+import 'package:meals/components/categories_item.dart';
 import '../data/dummy_data.dart';
 
 class Categories extends StatelessWidget {
+  const Categories({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +20,7 @@ class Categories extends StatelessWidget {
           mainAxisSpacing: 20,
         ),
         children: dummyCategories.map((cat) {
-          return CategoryItem(cat);
+          return CategoriesItem(cat);
         }).toList(),
       ),
     );
