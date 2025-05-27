@@ -42,7 +42,7 @@ class CategoriesMealsItem extends StatelessWidget {
                   right: 10,
                   bottom: 20,
                   child: Container(
-                    width: 300,
+                    width: 250,
                     color: Colors.black54,
                     padding: const EdgeInsets.symmetric(
                       vertical: 5,
