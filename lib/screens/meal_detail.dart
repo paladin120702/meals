@@ -9,9 +9,16 @@ class MealDetail extends StatelessWidget {
   Widget build(BuildContext context) {
     final meal = ModalRoute.of(context)!.settings.arguments as Meal;
     return Scaffold(
-        appBar: AppBar(
-          title: Text(meal.title),
-        ),
-        body: MealDetailItem(meal));
+      appBar: AppBar(
+        title: Text(meal.title),
+      ),
+      body: MealDetailItem(meal),
+      floatingActionButton: FloatingActionButton(
+        child: const Icon(Icons.star),
+        onPressed: () {
+          Navigator.of(context).pop();
+        },
+      ),
+    );
   }
 }

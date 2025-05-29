@@ -24,28 +24,45 @@ class DrawerItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final media = MediaQuery.of(context).size;
-    final width = media.width;
-    final height = media.height;
+    final media = MediaQuery.of(context);
+    final width = media.size.width;
+    final height = media.size.height;
+    bool isLandscape = media.orientation == Orientation.landscape;
 
     return Drawer(
       child: Column(
         children: [
-          Container(
-            height: height * 0.095,
-            width: double.infinity,
-            padding: EdgeInsets.all(height * 0.01),
-            color: Colors.amber,
-            alignment: Alignment.bottomLeft,
-            child: Text(
-              'Vamos cozinhar?',
-              style: TextStyle(
-                fontWeight: FontWeight.w900,
-                fontSize: width * 0.05,
-                color: Theme.of(context).primaryColor,
-              ),
-            ),
-          ),
+          isLandscape == true
+              ? Container(
+                  height: height * 0.20,
+                  width: double.infinity,
+                  padding: EdgeInsets.all(height * 0.02),
+                  color: Colors.amber,
+                  alignment: Alignment.bottomLeft,
+                  child: Text(
+                    'Vamos Cozinhar?',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w900,
+                      fontSize: width * 0.025,
+                      color: Theme.of(context).primaryColor,
+                    ),
+                  ),
+                )
+              : Container(
+                  height: height * 0.095,
+                  width: double.infinity,
+                  padding: EdgeInsets.all(height * 0.01),
+                  color: Colors.amber,
+                  alignment: Alignment.bottomLeft,
+                  child: Text(
+                    'Vamos Cozinhar?',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w900,
+                      fontSize: width * 0.05,
+                      color: Theme.of(context).primaryColor,
+                    ),
+                  ),
+                ),
           SizedBox(height: height * 0.01),
           _item(
             Icons.restaurant,
