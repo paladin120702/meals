@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'categories.dart';
 import 'favorites.dart';
+import '../models/meal.dart';
 
 class Tabs extends StatefulWidget {
-  const Tabs({super.key});
+  List<Meal> favoriteMeals;
+  Tabs(this.favoriteMeals, {super.key});
 
   @override
   State<Tabs> createState() => _TabsState();
@@ -11,10 +13,16 @@ class Tabs extends StatefulWidget {
 
 class _TabsState extends State<Tabs> {
   int _selectedScreenIndex = 0;
-  final List<Widget> _screens = [
-    const Categories(),
-    const Favorites(),
-  ];
+  late List<Widget> _screens;
+
+  @override
+  void initState() {
+    super.initState();
+    _screens = [
+      const Categories(),
+      Favorites(widget.favoriteMeals),
+    ];
+  }
 
   _selectedScreen(int index) {
     setState(() {

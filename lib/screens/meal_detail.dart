@@ -3,7 +3,10 @@ import 'package:meals/models/meal.dart';
 import '../components/meal_detail_item.dart';
 
 class MealDetail extends StatelessWidget {
-  const MealDetail({super.key});
+  final Function(Meal) onToggleFavorite;
+  final bool Function(Meal) isFavorite;
+
+  const MealDetail(this.onToggleFavorite, this.isFavorite, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,9 +17,9 @@ class MealDetail extends StatelessWidget {
       ),
       body: MealDetailItem(meal),
       floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.star),
+        child: Icon(isFavorite(meal) ? Icons.star : Icons.star_border),
         onPressed: () {
-          Navigator.of(context).pop();
+          onToggleFavorite(meal);
         },
       ),
     );
