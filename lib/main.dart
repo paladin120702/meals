@@ -20,7 +20,7 @@ class Meals extends StatefulWidget {
 class _MealsState extends State<Meals> {
   Filters filters = Filters();
   List<Meal> _availableMeals = dummyMeals;
-  List<Meal> _favoriteMeals = [];
+  final List<Meal> _favoriteMeals = [];
 
   void _filterMeals(Filters filters) {
     setState(() {

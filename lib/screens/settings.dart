@@ -41,7 +41,7 @@ class _SettingsState extends State<Settings> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Configurações'),
+        title: const Text('Settings'),
       ),
       body: Column(
         children: [
@@ -49,26 +49,26 @@ class _SettingsState extends State<Settings> {
             child: ListView(
               children: [
                 _createSwitch(
-                  'Sem Glutén',
-                  'Só exibe refeições sem glúten!',
+                  'Gluten free',
+                  'Only gluten-free meals!',
                   filters.isGlutenFree,
                   (value) => setState(() => filters.isGlutenFree = value),
                 ),
                 _createSwitch(
-                  'Sem Lactose',
-                  'Só exibe refeições sem lactose!',
+                  'Lactose free',
+                  'Only lactose-free meals!',
                   filters.isLactoseFree,
                   (value) => setState(() => filters.isLactoseFree = value),
                 ),
                 _createSwitch(
-                  'Vegano',
-                  'Só exibe refeições veganas!',
+                  'Vegan',
+                  'Only vegan meals!',
                   filters.isVegan,
                   (value) => setState(() => filters.isVegan = value),
                 ),
                 _createSwitch(
-                  'Vegetariano',
-                  'Só exibe refeições vegetarianas!',
+                  'Vegetarian',
+                  'Only vegetarian meals!',
                   filters.isVegetarian,
                   (value) => setState(() => filters.isVegetarian = value),
                 ),

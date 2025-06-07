@@ -40,7 +40,7 @@ class DrawerItem extends StatelessWidget {
                   color: Colors.amber,
                   alignment: Alignment.bottomLeft,
                   child: Text(
-                    'Vamos Cozinhar?',
+                    "Let's Cook?",
                     style: TextStyle(
                       fontWeight: FontWeight.w900,
                       fontSize: width * 0.025,
@@ -55,7 +55,7 @@ class DrawerItem extends StatelessWidget {
                   color: Colors.amber,
                   alignment: Alignment.bottomLeft,
                   child: Text(
-                    'Vamos Cozinhar?',
+                    "Let's Cook?",
                     style: TextStyle(
                       fontWeight: FontWeight.w900,
                       fontSize: width * 0.05,
@@ -66,12 +66,12 @@ class DrawerItem extends StatelessWidget {
           SizedBox(height: height * 0.01),
           _item(
             Icons.restaurant,
-            'Refeições',
+            'Meals',
             () => Navigator.of(context).pushReplacementNamed(AppRoutes.HOME),
           ),
           _item(
             Icons.settings,
-            'Configurações',
+            'Settings',
             () => Navigator.of(context).pushNamed(AppRoutes.SETTINGS),
           ),
         ],

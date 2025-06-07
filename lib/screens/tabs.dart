@@ -43,11 +43,11 @@ class _TabsState extends State<Tabs> {
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.category),
-            label: 'Categorias',
+            label: 'Categories',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.star),
-            label: 'Favoritos',
+            label: 'Favorites',
           ),
         ],
       ),

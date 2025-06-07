@@ -4,6 +4,30 @@ class MealDetailItem extends StatelessWidget {
   final dynamic meal;
   const MealDetailItem(this.meal, {super.key});
 
+  Widget _sectionTitle(BuildContext context, String title) {
+    return Container(
+      margin: const EdgeInsets.symmetric(vertical: 10),
+      child: Text(
+        title,
+        style: Theme.of(context).textTheme.titleMedium,
+      ),
+    );
+  }
+
+  Widget _sectionContainer(Widget child) {
+    return Container(
+      width: 300,
+      padding: const EdgeInsets.all(10),
+      margin: const EdgeInsets.all(10),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        border: Border.all(color: Colors.grey),
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: child,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -18,23 +42,9 @@ class MealDetailItem extends StatelessWidget {
               fit: BoxFit.cover,
             ),
           ),
-          Container(
-            margin: const EdgeInsets.symmetric(vertical: 10),
-            child: Text(
-              'Ingredients',
-              style: Theme.of(context).textTheme.titleMedium,
-            ),
-          ),
-          Container(
-            width: 300,
-            padding: const EdgeInsets.all(10),
-            margin: const EdgeInsets.all(10),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              border: Border.all(color: Colors.grey),
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: ListView.builder(
+          _sectionTitle(context, 'Ingredients'),
+          _sectionContainer(
+            ListView.builder(
               itemCount: meal.ingredients.length,
               itemBuilder: (ctx, index) {
                 return Card(
@@ -51,23 +61,9 @@ class MealDetailItem extends StatelessWidget {
               physics: const NeverScrollableScrollPhysics(),
             ),
           ),
-          Container(
-            margin: const EdgeInsets.symmetric(vertical: 10),
-            child: Text(
-              'Steps',
-              style: Theme.of(context).textTheme.titleMedium,
-            ),
-          ),
-          Container(
-            width: 300,
-            padding: const EdgeInsets.all(10),
-            margin: const EdgeInsets.all(10),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              border: Border.all(color: Colors.grey),
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: ListView.builder(
+          _sectionTitle(context, 'Steps'),
+          _sectionContainer(
+            ListView.builder(
               itemCount: meal.steps.length,
               itemBuilder: (ctx, index) {
                 return Column(

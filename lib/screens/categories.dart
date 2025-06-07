@@ -10,7 +10,7 @@ class Categories extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Lista de Categorias'),
+        title: const Text('Category List'),
       ),
       drawer: const DrawerItem(),
       body: GridView(

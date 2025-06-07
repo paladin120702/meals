@@ -11,12 +11,12 @@ class Favorites extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Meus Favoritos'),
+        title: const Text('My Favorites'),
       ),
       drawer: const DrawerItem(),
       body: favoriteMeals.isEmpty
           ? const Center(
-              child: Text('Nenhuma refeição favorita!'),
+              child: Text('No favorite meal!'),
             )
           : ListView.builder(
               itemCount: favoriteMeals.length,

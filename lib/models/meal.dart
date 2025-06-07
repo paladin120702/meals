@@ -44,26 +44,26 @@ class Meal {
   String get complexityText {
     switch (complexity) {
       case Complexity.simple:
-        return 'Simples';
+        return 'Simple';
       case Complexity.medium:
-        return 'Normal';
+        return 'Medium';
       case Complexity.difficult:
-        return 'Dificil';
+        return 'Difficult';
       default:
-        return 'Desconhecida';
+        return 'Unknown';
     }
   }
 
   String get costText {
     switch (cost) {
       case Cost.cheap:
-        return 'Barato';
+        return 'Cheap';
       case Cost.fair:
-        return 'Justo';
+        return 'Fair';
       case Cost.expensive:
-        return 'Caro';
+        return 'Expensive';
       default:
-        return 'Desconhecido';
+        return 'Unknown';
     }
   }
 }
