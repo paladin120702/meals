@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'utills/app_routes.dart';
 import 'screens/categories_meals.dart';
 import 'screens/meal_detail.dart';
@@ -38,11 +39,39 @@ class _MealsState extends State<Meals> {
     });
   }
 
-  void _toggleFavorite(Meal meal) {
+  @override
+  void initState() {
+    super.initState();
+    _loadFavoriteMeals();
+  }
+
+  void _loadFavoriteMeals() async {
+    final prefs = await SharedPreferences.getInstance();
+    final ids = prefs.getStringList('favoriteMeals') ?? [];
+
     setState(() {
-      _favoriteMeals.contains(meal)
-          ? _favoriteMeals.remove(meal)
-          : _favoriteMeals.add(meal);
+      _favoriteMeals.clear();
+      _favoriteMeals.addAll(
+        dummyMeals.where((meal) => ids.contains(meal.id)),
+      );
+    });
+  }
+
+  void _toggleFavorite(Meal meal) async {
+    final prefs = await SharedPreferences.getInstance();
+
+    setState(() {
+      if (_favoriteMeals.any((m) => m.id == meal.id)) {
+        _favoriteMeals.removeWhere((m) => m.id == meal.id);
+      } else {
+        if (!_favoriteMeals.any((m) => m.id == meal.id)) {
+          _favoriteMeals.add(meal);
+        }
+      }
+
+      // Salva a lista de IDs das favoritas
+      final ids = _favoriteMeals.map((m) => m.id).toList();
+      prefs.setStringList('favoriteMeals', ids);
     });
   }
 
@@ -53,6 +82,7 @@ class _MealsState extends State<Meals> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         appBarTheme: const AppBarTheme(
           backgroundColor: Colors.pink,
