@@ -68,8 +68,6 @@ class _MealsState extends State<Meals> {
           _favoriteMeals.add(meal);
         }
       }
-
-      // Salva a lista de IDs das favoritas
       final ids = _favoriteMeals.map((m) => m.id).toList();
       prefs.setStringList('favoriteMeals', ids);
     });
