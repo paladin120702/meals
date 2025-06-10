@@ -9,16 +9,16 @@ import 'models/meal.dart';
 import 'data/dummy_data.dart';
 import 'models/filters.dart';
 
-void main() => runApp(const Meals());
+void main() => runApp(const MealsApp());
 
-class Meals extends StatefulWidget {
-  const Meals({super.key});
+class MealsApp extends StatefulWidget {
+  const MealsApp({super.key});
 
   @override
-  State<Meals> createState() => _MealsState();
+  State<MealsApp> createState() => _MealsAppState();
 }
 
-class _MealsState extends State<Meals> {
+class _MealsAppState extends State<MealsApp> {
   Filters filters = Filters();
   List<Meal> _availableMeals = dummyMeals;
   final List<Meal> _favoriteMeals = [];
